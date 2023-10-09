@@ -2,12 +2,17 @@
 from vehicles.water import JetSki, Yacht
 from vehicles.air import Airplane
 from vehicles.space import HeavyRocket
+from facilities.hangar import Hangar
+from facilities import Dock
 
 # Vehicle Class Property Key (fuel_capacity, fuel_type, name, description, color)
 
 # Specific types of vehicles
 sea_doo = JetSki(8, "Gas", "Sea-Doo RXP-X 325", "Super fun", "Neon Blue")
-print(f"My {sea_doo.color} {sea_doo.name} is {sea_doo.description}")
+sea_doo.total_distance_traveled = 10
+print(f"My {sea_doo.color} {sea_doo.name} is {sea_doo.description} and has traveled {sea_doo.total_distance_traveled}")
+
+
 
 # HeavyRockets property key(fuel_capacity, fuel_type, name, description, color, number_of_thrusters, payload, payload_weight)
 falcon_heavy = HeavyRocket(
@@ -37,6 +42,19 @@ print(f"{boeing_747.name} is {boeing_747.description}")
 # yacht
 open_yacht = Yacht(10000, "E10", "Open Yacht", "open deck for warm seas", "white")
 print(f"My {open_yacht.color} {open_yacht.name} has an {open_yacht.description}")
+
+# tampa_airport = Hangar("Tampa International Airport")
+
+# tampa_airport.add_vehicle(boeing_747)
+
+
+
+
+los_angeles = Dock("Los Angeles", "Los Angeles", 700, 2, 4, 10)
+los_angeles.add_vehicle(boeing_747)
+los_angeles.add_vehicle(sea_doo)
+for vehicle in los_angeles.vehicles:
+    print(vehicle)
 
 
 # 1. Make classes for each vehicle
